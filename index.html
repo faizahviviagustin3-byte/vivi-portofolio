@@ -3,121 +3,507 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vivi Portfolio</title>
+  <title>Faizah Vivi Agustin | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 50%, #16213e 100%);
       color: #e2e8f0;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #06b6d4;
     }
 
     header {
       text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
+      padding: 100px 20px 120px;
+      background: linear-gradient(135deg, #0f172a 0%, #1a2942 50%, #3b82c4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: rgba(6, 182, 212, 0.1);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(20px); }
     }
 
     header h1 {
-      font-size: 42px;
-      margin: 0;
-      letter-spacing: 1px;
+      font-size: 56px;
+      margin: 0 0 15px;
+      background: linear-gradient(135deg, #06b6d4, #3b82c4, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+      animation: slideDown 0.8s ease;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     header p {
+      color: #cbd5e1;
       margin-top: 10px;
-      color: #94a3b8;
-    }
-
-    section {
-      padding: 50px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h2 {
-      border-left: 4px solid #38bdf8;
-      padding-left: 10px;
-      margin-bottom: 20px;
-    }
-
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      margin-bottom: 15px;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      background: #334155;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #64748b;
-      font-size: 14px;
+      font-size: 18px;
+      position: relative;
+      z-index: 1;
+      font-style: italic;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      border-radius: 20px;
-      background: #38bdf8;
-      color: #0f172a;
+      margin-top: 25px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #06b6d4, #3b82c4);
+      color: #fff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(6, 182, 212, 0.5);
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 950px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+      font-weight: 700;
+      background: linear-gradient(135deg, #06b6d4, #3b82c4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #06b6d4, #3b82c4, transparent);
+      border-radius: 2px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(51, 65, 85, 0.6));
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(6, 182, 212, 0.5);
+      box-shadow: 0 25px 50px rgba(6, 182, 212, 0.15);
+    }
+
+    .card:hover::before {
+      left: 100%;
+    }
+
+    .card h3 {
+      color: #06b6d4;
+      font-size: 20px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .card p {
+      line-height: 1.8;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    ul {
+      padding-left: 25px;
+    }
+
+    ul li {
+      margin: 10px 0;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    ul li::marker {
+      color: #06b6d4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #64748b;
+      font-size: 14px;
+      border-top: 1px solid rgba(6, 182, 212, 0.1);
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    strong {
+      color: #06b6d4;
+      font-weight: 600;
+    }
+
+    .edu-item {
+      margin-bottom: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(6, 182, 212, 0.2);
+    }
+
+    .edu-header {
+      padding: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      background: rgba(6, 182, 212, 0.1);
+      transition: 0.3s;
+    }
+
+    .edu-header:hover {
+      background: rgba(6, 182, 212, 0.2);
+    }
+
+    .edu-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .edu-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
+
+    .edu-content p {
+      padding: 0 15px 15px;
+    }
+
+    .edu-item.active .edu-content {
+      max-height: 500px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 60px 20px 80px;
+      }
+
+      header h1 {
+        font-size: 36px;
+      }
+
+      section {
+        padding: 50px 15px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
-
+<script>
+  function toggleEdu(element) {
+    const item = element.parentElement;
+    item.classList.toggle("active");
+  }
+</script>
 <body>
 
+<nav>
+  <a href="#about"><i class="fas fa-user"></i> About</a>
+  <a href="#biodata"><i class="fas fa-id-card"></i> Biodata</a>
+  <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+  <a href="#projects"><i class="fas fa-folder"></i> Projects</a>
+  <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+</nav>
+
 <header>
-  <h1>Vivi Agustin</h1>
-  <p>Future Informatics Student | Web Developer | Writer</p>
-  <a href="#about" class="btn">Explore</a>
+  <h1>Faizah Vivi Agustin</h1>
+  <p>Anak baik-baik yang suka geprek</p>
 </header>
 
+<!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
   <div class="card">
     <p>
-      Saya adalah seorang pelajar yang memiliki minat besar dalam bidang teknologi dan sastra.
-      Saat ini saya sedang mengembangkan website pembelajaran bahasa Inggris berbasis CEFR,
-      serta memiliki ambisi untuk menerbitkan novel di masa depan.
+      Saya adalah seorang pelajar yang memiliki ketertarikan kuat pada bidang teknologi,
+      khususnya dalam pengembangan web dan Human-Computer Interaction.
     </p>
   </div>
 </section>
 
+<!-- BIODATA -->
+<section id="biodata">
+  <h2>Biodata</h2>
+  <div class="card">
+    <p><strong>Nama:</strong> Faizah Vivi Agustin</p>
+    <p><strong>Tempat, Tanggal Lahir:</strong> Probolinggo, 28 Agustus 2008</p>
+    <p><strong>Alamat:</strong> Watupanjang, Krucil, Probolinggo</p>
+    <p><strong>Email:</strong> faizahviviagustin3@gmail.com</p>
+  </div>
+
+  <div class="card">
+    <h3>Riwayat Pendidikan</h3>
+
+    <div class="edu-item">
+      <div class="edu-header" onclick="toggleEdu(this)">
+        <span>TK PKK Tunas Muda</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="edu-content">
+        <img src="https://via.placeholder.com/400x200" alt="TK PKK">
+        <p>Sekolah dasar pertama saya dalam mengenal dunia pendidikan dengan lingkungan yang menyenangkan.</p>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-header" onclick="toggleEdu(this)">
+        <span>SDN II Krucil</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="edu-content">
+        <img src="https://via.placeholder.com/400x200" alt="SDN">
+        <p>Tempat saya mengembangkan dasar pengetahuan akademik dan karakter.</p>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-header" onclick="toggleEdu(this)">
+        <span>SMP Zainul Hasan 1 Genggong</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="edu-content">
+        <img src="https://via.placeholder.com/400x200" alt="SMP">
+        <p>Saya mulai aktif dalam organisasi dan pengembangan diri.</p>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-header" onclick="toggleEdu(this)">
+        <span>MA Zainul Hasan 1 Genggong</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="edu-content">
+        <img src="https://via.placeholder.com/400x200" alt="MA">
+        <p>Fokus pada pengembangan akademik dan minat di bidang teknologi.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ALASAN AMN -->
+<section id="alasan">
+  <h2>Alasan Memilih AMN Surabaya</h2>
+  <div class="card">
+    <p>
+      Saya memilih Asrama Mahasiswa Nusantara Surabaya karena program ini tidak hanya memberikan dukungan finansial, tetapi juga menawarkan lingkungan pembinaan yang komprehensif untuk mengembangkan potensi akademik maupun non-akademik. Bagi saya, AMN Surabaya merupakan wadah yang tepat untuk bertumbuh sebagai mahasiswa yang tidak hanya unggul dalam bidang akademik, tetapi juga memiliki kemampuan kepemimpinan, komunikasi, dan kolaborasi.
+    </p>
+    <br>
+    <p>
+      Selain itu, kesempatan untuk tinggal dan belajar bersama mahasiswa dari berbagai daerah di Indonesia menjadi nilai tambah yang sangat penting. Lingkungan yang beragam ini akan memperluas wawasan saya, melatih adaptasi, serta membangun jejaring yang kuat untuk masa depan. Saya percaya bahwa interaksi dengan individu-individu berprestasi akan mendorong saya untuk terus berkembang dan mencapai potensi terbaik.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="card">
+    <h3>Technical Skills</h3>
+    <ul>
+      <li>Frontend Development (HTML, CSS, JavaScript)</li>
+      <li>Web Development Framework (Laravel & Vue.js)</li>
+      <li>Database Management (MySQL)</li>
+      <li>C++</li>
+      <li>Basic AI & NLP Concept</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Soft Skills</h3>
+    <ul>
+      <li>Problem Solving</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MINAT & BAKAT -->
+<section>
+  <h2>Bakat & Minat</h2>
+  <div class="card">
+    <p><strong>Akademik:</strong></p>
+    <ul>
+      <li>Web Development</li>
+      <li>Artificial Intelligence</li>
+      <li>Human-Computer Interaction</li>
+    </ul>
+
+    <p><strong>Non Akademik:</strong></p>
+    <ul>
+      <li>Menulis cerpen & novel</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
 
   <div class="card">
-    <h3>Lemper - English Learning Website</h3>
+    <h3>Lemper – English Learning Website</h3>
     <p>
-      Platform pembelajaran Bahasa Inggris berbasis CEFR menggunakan Laravel dan Vue.
-      Memiliki fitur latihan speaking, grammar check, dan sistem leveling.
+      Platform pembelajaran Bahasa Inggris berbasis CEFR yang dirancang untuk membantu
+      pengguna meningkatkan kemampuan speaking melalui latihan interaktif dan analisis
+      grammar berbasis sistem. Dibangun menggunakan Laravel dan Vue.js.
     </p>
   </div>
 
   <div class="card">
-    <h3>Portfolio Website</h3>
+    <h3>Personal Portfolio Website</h3>
     <p>
-      Website portofolio pribadi yang menampilkan perjalanan, skill, dan project saya.
+      Website portofolio pribadi yang menampilkan perjalanan, skill, dan project yang telah
+      saya kerjakan sebagai bentuk dokumentasi perkembangan diri.
     </p>
   </div>
 
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
+<!-- PRESTASI -->
+<section>
+  <h2>Prestasi</h2>
   <div class="card">
-    <p>Email: vivi@email.com</p>
-    <p>Instagram: @vivi</p>
+    <ul>
+      <li>OSNK</li>
+    </ul>
+  </div>
+</section>
+
+<!-- HAFALAN -->
+<section>
+  <h2>Hafalan</h2>
+  <div class="card">
+    <ul>
+      <li>Al-Qur'an (50 juz)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section>
+  <h2>Cita-cita</h2>
+  <div class="card">
+    <p>
+      Saya bercita-cita menjadi pengembang teknologi yang berfokus pada sistem pembelajaran
+      berbasis AI untuk membantu meningkatkan kemampuan bahasa.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact & Social Media</h2>
+  <div class="card">
+    <p>Email: faizahviviagustin3@email.com</p>
+    <p>Instagram: @vfyzh_vv</p>
+    <p>GitHub: github.com/faizahviviagustin3-byte</p>
   </div>
 </section>
 

@@ -30,6 +30,14 @@
       backdrop-filter: blur(10px);
       padding: 15px 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
     }
 
     nav a {
@@ -38,10 +46,42 @@
       margin: 0 15px;
       font-weight: 500;
       transition: color 0.3s ease;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
     }
 
     nav a:hover {
       color: #06b6d4;
+    }
+
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger-menu span {
+      width: 25px;
+      height: 3px;
+      background: #e2e8f0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-menu.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger-menu.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-menu.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
     }
 
     header {
@@ -137,13 +177,12 @@
     h2 {
       font-size: 36px;
       margin-bottom: 40px;
-      position: relative;
-      display: inline-block;
       font-weight: 700;
       background: linear-gradient(135deg, #06b6d4, #3b82c4);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      position: relative;
     }
 
     h2::after {
@@ -152,7 +191,7 @@
       bottom: -10px;
       left: 0;
       width: 60px;
-      height: 4px;
+      height: 3px;
       background: linear-gradient(90deg, #06b6d4, #3b82c4, transparent);
       border-radius: 2px;
     }
@@ -179,6 +218,7 @@
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
       transition: left 0.5s;
+      pointer-events: none;
     }
 
     .card:hover {
@@ -202,6 +242,20 @@
       line-height: 1.8;
       color: #cbd5e1;
       font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 15px 0;
+      display: block;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover img {
+      border-color: rgba(6, 182, 212, 0.6);
     }
 
     ul {
@@ -215,7 +269,7 @@
     }
 
     ul li::marker {
-      color: #06b6d4;
+      color: #09b3d1;
     }
 
     footer {
@@ -273,6 +327,313 @@
       max-height: 500px;
     }
 
+    /* Achievement Styles */
+    .achievement {
+      margin-bottom: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(6, 182, 212, 0.2);
+    }
+
+    .achievement-header {
+      padding: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(6, 182, 212, 0.1);
+      transition: 0.3s;
+    }
+
+    .achievement-header:hover {
+      background: rgba(6, 182, 212, 0.2);
+    }
+
+    .achievement-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .achievement.active .achievement-content {
+      max-height: 500px;
+      padding: 15px;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: 0.3s;
+      cursor: pointer;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      border-color: rgba(6, 182, 212, 0.8);
+    }
+
+    /* Profile Photo */
+    .profile-photo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .profile-photo img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(6, 182, 212, 0.4);
+      box-shadow: 0 10px 40px rgba(6, 182, 212, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .profile-photo img:hover {
+      border-color: rgba(6, 182, 212, 0.8);
+      box-shadow: 0 15px 50px rgba(6, 182, 212, 0.4);
+      transform: scale(1.05);
+    }
+
+    /* Skill Bar Styles */
+    .skill-item {
+      margin-bottom: 20px;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    .skill-percentage {
+      color: #06b6d4;
+      font-weight: 700;
+      font-size: 13px;
+      background: rgba(6, 182, 212, 0.15);
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+
+    .skill-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(6, 182, 212, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      border: none;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #06b6d4, #3b82c4);
+      border-radius: 10px;
+      transition: width 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+    }
+
+    /* Talent & Interest Grid */
+    .talent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .talent-card {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(59, 130, 246, 0.08));
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      backdrop-filter: blur(10px);
+    }
+
+    .talent-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(6, 182, 212, 0.5);
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(59, 130, 246, 0.15));
+      box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
+    }
+
+    .talent-icon {
+      font-size: 36px;
+      color: #06b6d4;
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .talent-card:hover .talent-icon {
+      transform: scale(1.2) rotate(5deg);
+      color: #3b82c4;
+    }
+
+    .talent-name {
+      font-weight: 600;
+      color: #e2e8f0;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .talent-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    .talent-category {
+      font-weight: 700;
+      color: #06b6d4;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .contact-icons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-icons a {
+      font-size: 30px;
+      transition: 0.3s;
+    }
+
+    .contact-icons a:nth-child(2) i {
+      color: #e1306c; /* instagram */
+    }
+
+    .contact-icons a:nth-child(3) i {
+      color: #fff; /* github (biar kontras di dark) */
+    }
+
+    /* hover effect */
+    .contact-icons a:hover i {
+      transform: scale(1.2);
+    }
+
+    .contact-icons a:hover {
+      color: #007bff;
+      transform: scale(1.2);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      backdrop-filter: blur(4px);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: rgba(6, 182, 212, 0.2);
+      border: 2px solid rgba(6, 182, 212, 0.5);
+      color: #06b6d4;
+      font-size: 32px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(6, 182, 212, 0.4);
+      border-color: rgba(6, 182, 212, 0.8);
+      color: #00ffff;
+      transform: rotate(90deg) scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.3) translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Make images clickable */
+    .card img,
+    .gallery img,
+    .edu-content img,
+    .profile-photo img {
+      cursor: pointer;
+    }
+
+    .card img:active,
+    .gallery img:active,
+    .edu-content img:active,
+    .profile-photo img:active {
+      transform: scale(0.98);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       header {
@@ -294,6 +655,434 @@
       .card {
         padding: 20px;
       }
+
+      .card h3 {
+        font-size: 18px;
+      }
+
+      .card p {
+        font-size: 14px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.98);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        z-index: 998;
+      }
+
+      .nav-links.active {
+        max-height: 300px;
+      }
+
+      nav a {
+        padding: 15px 20px;
+        margin: 0;
+        border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .hamburger-menu {
+        display: flex;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+
+      .profile-photo img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .lightbox-close {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+      }
+    }
+
+    /* Tablet & Mobile Medium */
+    @media (max-width: 600px) {
+      header {
+        padding: 50px 15px 60px;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      header p {
+        font-size: 16px;
+      }
+
+      header::before {
+        width: 300px;
+        height: 300px;
+        top: -20%;
+        right: -20%;
+      }
+
+      header::after {
+        width: 250px;
+        height: 250px;
+        bottom: -20%;
+        left: -20%;
+      }
+
+      nav {
+        padding: 12px 15px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      section {
+        padding: 40px 12px;
+        max-width: 100%;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+      }
+
+      h2::after {
+        bottom: -8px;
+        width: 50px;
+      }
+
+      .card {
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+
+      .card h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+
+      .card p {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+        margin-top: 15px;
+      }
+
+      .skill-item {
+        margin-bottom: 15px;
+      }
+
+      .skill-name {
+        font-size: 13px;
+      }
+
+      .skill-percentage {
+        font-size: 12px;
+      }
+
+      .talent-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 12px;
+      }
+
+      ul li {
+        font-size: 13px;
+      }
+
+      .profile-photo img {
+        width: 130px;
+        height: 130px;
+        border: 3px solid rgba(6, 182, 212, 0.4);
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+      }
+
+      .gallery img {
+        border-radius: 8px;
+      }
+
+      .contact-icons {
+        gap: 15px;
+      }
+
+      .contact-icons a {
+        font-size: 24px;
+      }
+
+      .edu-header,
+      .achievement-header {
+        padding: 12px;
+        font-size: 13px;
+      }
+
+      .edu-header i,
+      .achievement-header i {
+        font-size: 14px;
+      }
+    }
+
+    /* Mobile Small */
+    @media (max-width: 480px) {
+      header {
+        padding: 40px 12px 50px;
+      }
+
+      header h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      header p {
+        font-size: 14px;
+      }
+
+      header::before {
+        width: 200px;
+        height: 200px;
+      }
+
+      header::after {
+        width: 180px;
+        height: 180px;
+      }
+
+      nav {
+        padding: 10px 12px;
+      }
+
+      nav a {
+        font-size: 12px;
+        margin: 0;
+      }
+
+      section {
+        padding: 30px 12px;
+      }
+
+      h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+      .card {
+        padding: 12px;
+        margin-bottom: 12px;
+        border-radius: 12px;
+      }
+
+      .card h3 {
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .card img {
+        margin: 10px 0;
+        border-radius: 10px;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        font-size: 13px;
+      }
+
+      .skill-bar {
+        height: 6px;
+      }
+
+      .skill-item {
+        margin-bottom: 12px;
+      }
+
+      .skill-header {
+        margin-bottom: 5px;
+      }
+
+      .skill-name {
+        font-size: 12px;
+      }
+
+      .skill-percentage {
+        font-size: 11px;
+        padding: 3px 8px;
+      }
+
+      .talent-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .talent-card {
+        padding: 15px;
+      }
+
+      .talent-icon {
+        font-size: 28px;
+        margin-bottom: 8px;
+      }
+
+      .talent-name {
+        font-size: 13px;
+      }
+
+      .talent-desc {
+        font-size: 11px;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      ul li {
+        font-size: 12px;
+        margin: 8px 0;
+      }
+
+      .profile-photo {
+        margin-bottom: 20px;
+      }
+
+      .profile-photo img {
+        width: 110px;
+        height: 110px;
+        border: 2px solid rgba(6, 182, 212, 0.4);
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+      }
+
+      .gallery img {
+        border-radius: 8px;
+        border: 1px solid rgba(6, 182, 212, 0.2);
+      }
+
+      .contact-icons {
+        gap: 12px;
+      }
+
+      .contact-icons a {
+        font-size: 20px;
+      }
+
+      .edu-header,
+      .achievement-header {
+        padding: 10px;
+        font-size: 12px;
+      }
+
+      .edu-header i,
+      .achievement-header i {
+        font-size: 12px;
+      }
+
+      footer {
+        padding: 30px 15px;
+        font-size: 12px;
+      }
+
+      .lightbox-close {
+        top: 5px;
+        right: 5px;
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+      }
+
+      .lightbox-content {
+        max-width: 95%;
+        max-height: 80vh;
+      }
+    }
+
+    /* Extra Small Mobile */
+    @media (max-width: 375px) {
+      header {
+        padding: 35px 10px 45px;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      header p {
+        font-size: 13px;
+      }
+
+      section {
+        padding: 25px 10px;
+      }
+
+      h2 {
+        font-size: 18px;
+        margin-bottom: 18px;
+      }
+
+      .card {
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      .card h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        font-size: 11px;
+      }
+
+      strong {
+        font-size: 11px;
+      }
+
+      .profile-photo img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .gallery {
+        gap: 4px;
+      }
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
     }
   </style>
 </head>
@@ -306,25 +1095,67 @@
 <body>
 
 <nav>
-  <a href="#about"><i class="fas fa-user"></i> About</a>
-  <a href="#biodata"><i class="fas fa-id-card"></i> Biodata</a>
-  <a href="#skills"><i class="fas fa-code"></i> Skills</a>
-  <a href="#projects"><i class="fas fa-folder"></i> Projects</a>
-  <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#about"><i class="fas fa-user"></i> About</a>
+    <a href="#biodata"><i class="fas fa-id-card"></i> Biodata</a>
+    <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+    <a href="#projects"><i class="fas fa-folder"></i> Projects</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+  </div>
+  <div class="hamburger-menu" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </nav>
 
 <header>
   <h1>Faizah Vivi Agustin</h1>
-  <p>Anak baik-baik yang suka geprek</p>
+  <p>Teknik Informatika - ITS</p>
 </header>
 
 <!-- ABOUT -->
 <section id="about">
-  <h2>About Me</h2>
+  <h2>About Vivi</h2>
+
   <div class="card">
     <p>
-      Saya adalah seorang pelajar yang memiliki ketertarikan kuat pada bidang teknologi,
-      khususnya dalam pengembangan web dan Human-Computer Interaction.
+      Saya adalah pelajar yang memiliki minat besar di bidang teknologi dan sastra. Saya tertarik mengembangkan platform edukasi berbasis bahasa yang memanfaatkan teknologi, khususnya Artificial Intelligence, untuk membantu proses belajar yang lebih efektif dan personal.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Kenapa Teknik Informatika - ITS?</h3>
+    <img src="its.jpeg" alt="ITS">
+    <p>
+      Saya memilih Teknik Informatika karena memiliki ketertarikan yang besar pada dunia pemrograman dan pengolahan bahasa alami (Natural Language Processing). Saya tertarik bagaimana teknologi dapat memahami bahasa manusia dan membantu proses belajar menjadi lebih efektiif. Minat tersebut saya kembangkan melalui pembuatan proyek berbasis web yang berfokus pada pembelajaran bahasa Inggris, sehingga saya ingin memperdalam kemampuan dalam pengembangan software dan kecerdasan buatan melalui bidang Teknik Informatika.
+    </p>
+    <br>
+    <p>
+      Saya memilih Institut Teknologi Sepuluh Nopember karena ITS dikenal memiliki lingkungan akademik yang kuat di bidang teknologi serta mendukung mahasiswa untuk berkembang secara praktis maupun inovatif. Saya melihat ITS sebagai tempat yang tepat untuk mengasah kemampuan saya dan berkontribusi dalam pengembangan teknologi yang bermanfaat. Ke depannya, saya ingin mengembangkan platform pembelajaran berbasis teknologi yang dapat membantu lebih banyak orang dalam mempelajari bahasa secara efektif.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Kenapa AMN Surabaya?</h3>
+    <img src="amn.jpg" alt="AMN Surabaya">
+    <p>
+      Saya memilih Asrama Mahasiswa Nusantara Surabaya karena program ini tidak hanya memberikan dukungan finansial, tetapi juga menawarkan lingkungan pembinaan yang komprehensif untuk mengembangkan potensi akademik maupun non-akademik. Bagi saya, AMN Surabaya merupakan wadah yang tepat untuk berkembang sebagai mahasiswa yang tidak hanya unggul dalam bidang akademik, namun juga memiliki kemampuan komunikasi dan kolaborasi.
+    </p>
+    <br>
+    <p>
+      Selain itu, kesempatan untuk tinggal dan belajar bersama mahasiswa dari berbagai daerah di Indonesia menjadi nilai tambah yang sangat penting. Lingkungan yang beragam ini akan memperluas wawasan saya, melatih adaptasi, serta membangun jejaring yang kuat untuk masa depan. Saya percaya bahwa interaksi dengan individu-individu berprestasi akan mendorong saya untuk terus berkembang dan mencapai potensi terbaik.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Visi & Masa Depan</h3>
+    <p>
+      Visi saya adalah menjadi pengembang di bidang informatika yang mampu menciptakan solusi teknologi yang inovatif dan bermanfaat bagi masyarakat. Saya tertarik pada pengembangan perangkat lunak, kecerdasan buatan, serta bagaimana teknologi dapat digunakan untuk menyelesaikan permasalahan nyata secara efisien.
+    </p>
+    <br>
+    <p>
+      Di masa depan, saya ingin terlibat dalam pengembangan sistem berbasis teknologi yang tidak hanya canggih secara teknis, tetapi juga memiliki nilai guna yang tinggi. Salah satu bidang yang ingin saya dalami lebih lanjut adalah pengolahan bahasa alami, sebagai bagian dari pemanfaatan kecerdasan buatan dalam kehidupan sehari-hari.
     </p>
   </div>
 </section>
@@ -332,6 +1163,11 @@
 <!-- BIODATA -->
 <section id="biodata">
   <h2>Biodata</h2>
+  
+  <div class="profile-photo">
+    <img src="profile.jpg" alt="Foto Profil Faizah Vivi Agustin">
+  </div>
+
   <div class="card">
     <p><strong>Nama:</strong> Faizah Vivi Agustin</p>
     <p><strong>Tempat, Tanggal Lahir:</strong> Probolinggo, 28 Agustus 2008</p>
@@ -359,7 +1195,7 @@
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="edu-content">
-        <img src="sd.jpg" alt="SDN">
+        <img src="sd.JPG" alt="SDN">
         <p>Tempat saya mengembangkan dasar pengetahuan akademik dan karakter.</p>
       </div>
     </div>
@@ -371,7 +1207,7 @@
       </div>
       <div class="edu-content">
         <img src="smp.jpg" alt="SMP">
-        <p>Saya suka geprek..?</p>
+        <p>SMP Zainul Hasan 1 Genggong merupakan sebuah sekolah berbasis pesantren yang berdiri dibawah naungan Yayasan Zainul Hasan.</p>
       </div>
     </div>
 
@@ -381,65 +1217,150 @@
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="edu-content">
-        <img src="ma.jpg" alt="MA">
-        <p>Mumtaz!</p>
+        <img src="MA.jpg" alt="MA">
+        <p>MA Zainul Hasan 1 Genggong merupakan madrasah berbasis pesantren dan teknologi yang memiliki program unggulan berupa PRODISTIK, dimana setiap santri diwajibkan untuk memiliki karya tugas akhirnya sendiri sebagai persyaratan kelulusan.</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ALASAN AMN -->
-<section id="alasan">
-  <h2>Alasan Memilih AMN Surabaya</h2>
-  <div class="card">
-    <p>
-      Saya memilih Asrama Mahasiswa Nusantara Surabaya karena program ini tidak hanya memberikan dukungan finansial, tetapi juga menawarkan lingkungan pembinaan yang komprehensif untuk mengembangkan potensi akademik maupun non-akademik. Bagi saya, AMN Surabaya merupakan wadah yang tepat untuk bertumbuh sebagai mahasiswa yang tidak hanya unggul dalam bidang akademik, tetapi juga memiliki kemampuan kepemimpinan, komunikasi, dan kolaborasi.
-    </p>
-    <br>
-    <p>
-      Selain itu, kesempatan untuk tinggal dan belajar bersama mahasiswa dari berbagai daerah di Indonesia menjadi nilai tambah yang sangat penting. Lingkungan yang beragam ini akan memperluas wawasan saya, melatih adaptasi, serta membangun jejaring yang kuat untuk masa depan. Saya percaya bahwa interaksi dengan individu-individu berprestasi akan mendorong saya untuk terus berkembang dan mencapai potensi terbaik.
-    </p>
-  </div>
-</section>
-
 <!-- SKILLS -->
 <section id="skills">
   <h2>Skills</h2>
+  
   <div class="card">
     <h3>Technical Skills</h3>
-    <ul>
-      <li>Frontend Development (HTML, CSS, JavaScript)</li>
-      <li>Web Development Framework (Laravel & Vue.js)</li>
-      <li>Database Management (MySQL)</li>
-      <li>C++</li>
-      <li>Basic AI & NLP Concept</li>
-    </ul>
+    
+    <div class="skill-item">
+      <div class="skill-header">
+        <span class="skill-name">Frontend Development (HTML, CSS, JavaScript)</span>
+        <span class="skill-percentage">Expert</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 90%"></div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-header">
+        <span class="skill-name">Backend & Web Development (Laravel, Vue.js)</span>
+        <span class="skill-percentage">Advanced</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 80%"></div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-header">
+        <span class="skill-name">Database Management (MySQL)</span>
+        <span class="skill-percentage">Advanced</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 80%"></div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-header">
+        <span class="skill-name">Programming (C++)</span>
+        <span class="skill-percentage">Intermediate</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 70%"></div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-header">
+        <span class="skill-name">Artificial Intelligence & NLP</span>
+        <span class="skill-percentage">Intermediate</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 70%"></div>
+      </div>
+    </div>
   </div>
 
   <div class="card">
     <h3>Soft Skills</h3>
-    <ul>
-      <li>Problem Solving</li>
-    </ul>
+    
+    <div class="skill-item">
+      <div class="skill-header">
+        <span class="skill-name">Problem Solving</span>
+        <span class="skill-percentage">Expert</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 90%"></div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-header">
+        <span class="skill-name">Logical Thinking</span>
+        <span class="skill-percentage">Expert</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 90%"></div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-header">
+        <span class="skill-name">Self-Learning Ability</span>
+        <span class="skill-percentage">Expert</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 95%"></div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-header">
+        <span class="skill-name">Time Management</span>
+        <span class="skill-percentage">Expert</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 85%"></div>
+      </div>
+    </div>
   </div>
 </section>
-
-<!-- MINAT & BAKAT -->
 <section>
   <h2>Bakat & Minat</h2>
   <div class="card">
-    <p><strong>Akademik:</strong></p>
-    <ul>
-      <li>Web Development</li>
-      <li>Artificial Intelligence</li>
-      <li>Human-Computer Interaction</li>
-    </ul>
+    <div style="margin-bottom: 25px;">
+      <p style="margin-bottom: 15px; color: #a8d5e2; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Akademik</p>
+      <div class="talent-grid">
+        <div class="talent-card">
+          <div class="talent-icon"><i class="fas fa-globe"></i></div>
+          <div class="talent-name">Web Development</div>
+          <div class="talent-desc">Pengembangan aplikasi web modern</div>
+        </div>
+        <div class="talent-card">
+          <div class="talent-icon"><i class="fas fa-brain"></i></div>
+          <div class="talent-name">Artificial Intelligence</div>
+          <div class="talent-desc">Machine Learning & NLP</div>
+        </div>
+        <div class="talent-card">
+          <div class="talent-icon"><i class="fas fa-users"></i></div>
+          <div class="talent-name">Human-Computer Interaction</div>
+          <div class="talent-desc">UI/UX & User Experience</div>
+        </div>
+      </div>
+    </div>
 
-    <p><strong>Non Akademik:</strong></p>
-    <ul>
-      <li>Menulis cerpen & novel</li>
-    </ul>
+    <div>
+      <p style="margin-bottom: 15px; color: #a8d5e2; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Non Akademik</p>
+      <div class="talent-grid">
+        <div class="talent-card">
+          <div class="talent-icon"><i class="fas fa-pen-nib"></i></div>
+          <div class="talent-name">Menulis Sastra</div>
+          <div class="talent-desc">Cerpen, novel & puisi</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -450,9 +1371,7 @@
   <div class="card">
     <h3>Lemper – English Learning Website</h3>
     <p>
-      Platform pembelajaran Bahasa Inggris berbasis CEFR yang dirancang untuk membantu
-      pengguna meningkatkan kemampuan speaking melalui latihan interaktif dan analisis
-      grammar berbasis sistem. Dibangun menggunakan Laravel dan Vue.js.
+      Platform pembelajaran Bahasa Inggris berbasis CEFR yang saya kembangkan untuk membantu pengguna meningkatkan kemampuan speaking, writing, listening, reading dan grammar melalui analisis berbasis AI. Dibangun menggunakan Laravel dan Vue.js dengan fokus pada interaktivitas dan personalisasi pembelajaran.
     </p>
   </div>
 
@@ -469,10 +1388,210 @@
 <!-- PRESTASI -->
 <section>
   <h2>Prestasi</h2>
+
   <div class="card">
-    <ul>
-      <li>OSNK</li>
-    </ul>
+    <!-- ITEM 2022 -->
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2022 - Juara 1 Olimpiade Sains Nasional Tingkat Kabupaten bidang Matematika</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+
+      <div class="achievement-content">
+        <p></p>
+        <div class="gallery">
+          <img src="2022.jpg" alt="Piagam 2022">
+          <img src="osk22.jpg" alt="Dokumentasi 2022">
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 2023 -->
+     <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2023 - Peserta Paket Hari Ilmiah XXII Universitas Islam Malang</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+
+      <div class="achievement-content">
+         <div class="gallery">
+          <img src="2023.jpg" alt="PHI 2023">
+        </div>
+      </div>
+    </div>
+
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2023 - Silver Award Thailand International Mathematical Olympiad Heat Round</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+
+      <div class="achievement-content">
+         <div class="gallery">
+          <img src="doktai.jpg" alt="Dokumentasi TIMO 2023">
+          <img src="thai.jpg" alt="Screenshot Pengumuman 2023">
+          <img src="sertai.jpg" alt="Sertifikat TIMO 2023">
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 2024 -->
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2024 - Merit Award Thailand International Mathematical Olympiad Final Round</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+
+      <div class="achievement-content">
+        <div class="gallery">
+          <img src="merit.jpg" alt="Sertifikat TIMO 2024">
+          <img src="merit thai.jpg" alt="Sertifikat TIMO 2024">
+        </div>
+      </div>
+    </div>
+
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2024 - Finalis Eduversal Mathematics Competition</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+
+      <div class="achievement-content">
+        <div class="gallery">
+          <img src="Vivi EMC 2024 Certificate (3)_page-0003.jpg" alt="Sertifikat EMC 2024">
+          <img src="Vivi EMC 2024 Certificate (3)_page-0001.jpg" alt="Sertifikat EMC 2024">
+          <img src="emc.jpg" alt="Dokumentasi Lomba 2024">
+        </div>
+      </div>
+    </div>
+
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2024 - Peserta Programming Competition ITCC Universitas Udayana</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+
+      <div class="achievement-content">
+        <div class="gallery">
+          <img src="Faizah Vivi Agustin.png" alt="Sertifikat ITCC 2024">
+        </div>
+      </div>
+    </div>
+
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2024 - Merit Award Paket Hari Ilmiah XXIII Universitas Islam Malang</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+
+      <div class="achievement-content">
+        <div class="gallery">
+          <img src="phi.jpg" alt="Dokumentasi PHI 2024">
+          <img src="lolos.jpg" alt="Dokumentasi PHI 2024">
+          <img src="phi2.jpg" alt="Dokumentasi PHI 2024">
+          <img src="meritphi.jpg" alt="Dokumentasi PHI 2024">
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 2025 -->
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2025 - Peserta Olimpiade ORBIT</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="achievement-content">
+        <div class="gallery">
+          <img src="orbit.jpg" alt="Peserta ORBIT">
+        </div>
+      </div>
+    </div>
+
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2025 - Juara Harapan 2 Olimpiade Nasional bidang Matematika</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="achievement-content">
+        <div class="gallery">
+          <img src="finalbatu.jpg" alt="finalis OLNAS">
+          <img src="olnas.jpg" alt="Sertifikat IKMC 2025">
+          <img src="harapan2.jpg" alt="Dokumentasi Kegiatan 2025">
+        </div>
+      </div>
+    </div>
+
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2024 - Semifinalis Kompetisi Matematika Nalaria Realistik ke-20</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+
+      <div class="achievement-content">
+        <div class="gallery">
+          <img src="semifinal kmnr 20.jpg" alt="Dokumentasi Semifinal KMNR 2024">
+          <img src="Sertifikat_KMNR20P-Faizah_Vivi_Agustin-20P-1162123_page-0001.jpg" alt="Dokumentasi Lomba 2024">
+          <img src="Sertifikat_KMNR20S-Faizah_Vivi_Agustin-20ST-1124281_page-0001.jpg" alt="Sertifikat 2024">
+        </div>
+      </div>
+    </div>
+
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2025 - Silver Award International Kangaroo Mathematics Contest</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="achievement-content">
+        <div class="gallery">
+          <img src="Sertifikat_IKMC25-Faizah_Vivi_Agustin-M25-053684_page-0001 (1).jpg" alt="Sertifikat IKMC 2025">
+          <img src="silver.jpg" alt="Dokumentasi Kegiatan 2025">
+        </div>
+      </div>
+    </div>
+
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2025 - Juara 1 Olimpiade Sains Nasional Tingkat Kabupaten bidang Informatika</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="achievement-content">
+        <div class="gallery">
+          <img src="osk.jpg" alt="Sertifikat OSK 2025">
+          <img src="osnk.jpg" alt="Dokumentasi Kegiatan 2025">
+        </div>
+      </div>
+    </div>
+
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2025 - Finalis Informatics Olympiad Uiversitas Negeri Jember</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="achievement-content">
+        <div class="gallery">
+          <img src="Sertifikat Peserta - Faizah Vivi Agustin (2)_page-0001.jpg" alt="Sertifikat IO 2025">
+          <img src="unej.jpg" alt="UNEJ 2025">
+          <img src="Sertifikat Finalis - Faizah Vivi Agustin (2)_page-0001.jpg" alt="Dokumentasi Kegiatan 2025">
+          <img src="unej2.jpg" alt="UNEJ 2025">
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 2026 -->
+    <div class="achievement">
+      <div class="achievement-header" onclick="toggleAchievement(this)">
+        <span>2026 - Award Kompetisi Matematika Nalaria Realistik</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+
+      <div class="achievement-content">
+        <div class="gallery">
+          <img src="Sertifikat_MR21-Faizah_Vivi_Agustin-MR2148L00001 (2)_page-0001.jpg" alt="Sertifikat MR21 2026">
+          <img src="Sertifikat_MR21S-Faizah_Vivi_Agustin-MR2148L00001_page-0001.jpg" alt="Sertifikat MR21S 2026">
+          <img src="yey.jpg" alt="Dokumentasi 2026">
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -481,35 +1600,121 @@
   <h2>Hafalan</h2>
   <div class="card">
     <ul>
-      <li>Al-Qur'an (50 juz)</li>
+      <li>Al-Qur'an (Juz 30)</li>
+      <li>Nadzom Safinatun Najah</li>
+      <li>Hadist Arba'un Nawawi</li>
     </ul>
-  </div>
-</section>
-
-<!-- GOALS -->
-<section>
-  <h2>Cita-cita</h2>
-  <div class="card">
-    <p>
-      Saya bercita-cita menjadi pengembang teknologi yang berfokus pada sistem pembelajaran
-      berbasis AI untuk membantu meningkatkan kemampuan bahasa.
-    </p>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <h2>Contact & Social Media</h2>
-  <div class="card">
-    <p>Email: faizahviviagustin3@email.com</p>
-    <p>Instagram: @vfyzh_vv</p>
-    <p>GitHub: github.com/faizahviviagustin3-byte</p>
+  <div class="card contact-icons">
+    
+    <a href="mailto:faizahviviagustin3@gmail.com" target="_blank">
+      <i class="fas fa-envelope"></i>
+    </a>
+
+    <a href="https://instagram.com/fyzh_vv" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://github.com/faizahviviagustin3-byte" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Vivi Agustin. All rights reserved.</p>
+  <p>© 2026 Faizah Vivi Agustin. All rights reserved.</p>
 </footer>
 
+<!-- Lightbox Modal -->
+<div class="lightbox-modal" id="lightboxModal">
+  <div class="lightbox-content">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img id="lightboxImage" src="" alt="Lightbox Image">
+  </div>
+</div>
+
+<script>
+// Hamburger Menu Toggle
+function toggleMenu() {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('active');
+}
+
+// Close menu when a link is clicked
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('#navLinks a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinksMenu = document.getElementById('navLinks');
+      hamburger.classList.remove('active');
+      navLinksMenu.classList.remove('active');
+    });
+  });
+});
+
+function toggleAchievement(element) {
+  const item = element.parentElement;
+  item.classList.toggle("active");
+  
+  // Rotate chevron
+  const chevron = element.querySelector('.fa-chevron-down');
+  if (item.classList.contains('active')) {
+    chevron.style.transform = 'rotate(180deg)';
+  } else {
+    chevron.style.transform = 'rotate(0deg)';
+  }
+}
+
+// Lightbox functionality
+function openLightbox(imageSrc) {
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImage = document.getElementById('lightboxImage');
+  lightboxImage.src = imageSrc;
+  lightboxModal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent scrolling
+}
+
+function closeLightbox() {
+  const lightboxModal = document.getElementById('lightboxModal');
+  lightboxModal.classList.remove('active');
+  document.body.style.overflow = 'auto'; // Re-enable scrolling
+}
+
+// Make all images clickable
+document.addEventListener('DOMContentLoaded', function() {
+  const images = document.querySelectorAll('.card img, .gallery img, .edu-content img, .profile-photo img');
+  images.forEach(img => {
+    img.addEventListener('click', function() {
+      openLightbox(this.src);
+    });
+  });
+});
+
+// Close lightbox when clicking outside the image
+document.addEventListener('DOMContentLoaded', function() {
+  const lightboxModal = document.getElementById('lightboxModal');
+  lightboxModal.addEventListener('click', function(e) {
+    if (e.target === lightboxModal) {
+      closeLightbox();
+    }
+  });
+});
+
+// Close lightbox with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeLightbox();
+  }
+});
+</script>
 </body>
 </html>
